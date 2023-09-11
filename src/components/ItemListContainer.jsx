@@ -1,13 +1,19 @@
-import React from 'react'
+import React from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const Mensaje = ({texto, clase}) =>{
-    return <h1 className={clase}>{texto}</h1>
-}
-export const ItemListContainer = () => {
+export const ItemListContainer = ({nombre}) => {
   return (
-    <div className='item-list'>
-        <Mensaje texto="Soy el props del item list container" clase='mensaje-item' />
-        <Mensaje texto="Soy el segundo mensaje del props" clase='mensaje-item' />
+    <div>
+      <Container>
+      <Row>
+        <Col>
+         <h1 className="saludo">Hola {nombre}</h1>
+        </Col>
+      </Row>
+    </Container>
+     
     </div>
   )
 }

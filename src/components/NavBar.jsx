@@ -1,10 +1,7 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Row from 'react-bootstrap/Row';
 import logo from '../img/svg/logo.svg';
+import { Categorias } from './Categorias';
+import ItemListDrop from './ItemListDrop';
 import { CarWidget } from './CarWidget';
 
 
@@ -12,45 +9,31 @@ import { CarWidget } from './CarWidget';
 export const NavBar = () => {
   return (
     <>
-    <Container fluid>
-      <Row>
-        <Navbar collapseOnSelect expand="lg" className="navbar">
-        <Container>
-          <Navbar.Brand href="#logo">
-          <img src={logo} className="logo react" alt="Ductos" />
-          
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="#">Instalación y programación CCTV</Nav.Link>
-                <Nav.Link href="#">Alarmas</Nav.Link>
-                <Nav.Link href="#">Citonía</Nav.Link>
-                <Nav.Link href="#">Sistemas de incendios</Nav.Link>
-                <Nav.Link href="#">Red interna telecomunicaciones</Nav.Link>
-                
-                <NavDropdown title="Otros Servicios" id="collapsible-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
-                    Separated link
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-              <Nav>
-                <Nav.Link eventKey={2} href="#memes">
-                  <CarWidget/>
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-        </Container>
-        </Navbar>
-      </Row>
-    </Container>
+   
+   <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+    <img src={logo} className="logo react" alt="Ductos" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        {/* Listado de categorias  */}
+       <Categorias texto='Categoria 1' />
+       <Categorias texto='Categoria 2' />
+       <Categorias texto='Categoria 3' />
+       {/* Listado de categorias dropdown */}
+        <ItemListDrop categoria='gggg' subcategoria='rrrr' link ='rrrr'/>
+      </ul>
+    </div>
+    <CarWidget/>
+  </div>
+    </nav>
     </>
   )
 }
