@@ -1,15 +1,15 @@
-import {MDBBtn,MDBCard, MDBCardBody, MDBCardHeader, MDBCol, MDBRipple,MDBRow, MDBTypography, } from "mdb-react-ui-kit";
+import {MDBIcon,MDBInput, MDBBtn,MDBCard, MDBCardBody, MDBCardHeader, MDBCol, MDBRipple,MDBRow, MDBTypography, } from "mdb-react-ui-kit";
 import { useState } from 'react';
 export const Item = ({name,image,stock,price,id}) => {
-  const [Aumentar,setAumentar ]= useState(0);
-  function disminuir() {
-      if (Aumentar <= 0 ) {
-          setAumentar (0);
-      }   
-     else
-      setAumentar(Aumentar - 1);
-    }
+  const [count, setCount] = useState(0);
+
+  const incrementar = () => {
+    setCount ((count) => count + 1 )
+  }
   
+const decrementar = () =>{
+    setCount ((count) => count - 1)
+}
     
     return (
       
@@ -39,7 +39,20 @@ export const Item = ({name,image,stock,price,id}) => {
                       <strong>Precio: ${price}</strong>
                     </p>
                     <MDBBtn block size="lg">Ver detalle</MDBBtn>
-                   
+                    <div className="botones-item">
+                      
+                      <MDBCol  lg="12" xl="12"
+                  className="d-flex align-items-center justify-content-around">
+                      <MDBBtn className="px-3 me-2" disabled={count === 0} onClick={decrementar}>
+                        <MDBIcon fas icon="minus"/>
+                      </MDBBtn>
+
+                    <MDBInput value={count} min={0} type="number" label="Cantidad"/>
+
+                      <MDBBtn  onClick={incrementar}  className="px-3 ms-2" disabled={count === stock} ><MDBIcon fas icon="plus"/></MDBBtn> 
+                      </MDBCol>
+                    </div>
+                    
                     </MDBRipple>
               </MDBCardBody>
         </MDBCard> 
