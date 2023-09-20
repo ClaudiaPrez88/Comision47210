@@ -1,19 +1,19 @@
-import React from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+// import CheckOut from "./CheckOut";
+import { ItemList } from './ItemList';
 
-export const ItemListContainer = ({nombre}) => {
-  return (
-    <div>
-      <Container>
-      <Row>
-        <Col>
-         <h1 className="saludo">Hola {nombre}</h1>
-        </Col>
-      </Row>
-    </Container>
-     
-    </div>
-  )
-}
+  export default function ItemListContainer() {
+          return (
+               <>
+                    <ItemList/>
+                  
+                  
+                 {/* <Col sm={4}>
+                     <CheckOut/> 
+                  </Col>*/}
+            </>
+          )
+        }
+        

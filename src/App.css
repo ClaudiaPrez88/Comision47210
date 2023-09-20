@@ -76,6 +76,18 @@ button.navbar-toggler {
   border-radius: 50%;
   padding: 8px;
 }
+.boton-item{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  align-content: center;
+   justify-content: center;
+}
+.numero-item{
+  display: grid;
+  align-content: center;
+  margin-bottom: 0px;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
