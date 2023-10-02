@@ -4,6 +4,8 @@ import { getProductoByName } from "./productos";
 import { Container,Row,Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Item } from '../Item';
+import loading from '../../img/animacion/loading.json';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 export const ProductoByCategory = () => {
   // Creo el useSate para generar mi objeto de array que contendra la info de mi Promesa
@@ -20,7 +22,17 @@ const {productoCategory} = useParams();
    }, [productoCategory]);
 
   if (!productos) {
-    return <h1>Cargando</h1>;
+    return(
+      <>
+      <Player
+        src={loading}
+        className="player"
+        loop
+        autoplay
+        speed={1}
+        />
+      </>
+    )
   }
   const categoria = productos.filter(producto => producto.category === productoCategory);
   console.log(categoria)
@@ -28,7 +40,7 @@ const {productoCategory} = useParams();
     
       <>
      
-         <div>
+         <div className='item-list-container'>
          <Container>
             <Row>
             {categoria.map((producto) =>(   

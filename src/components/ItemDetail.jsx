@@ -4,12 +4,9 @@ import { useEffect,useState } from 'react';
 import { getProductoByName } from './services/productos';
 import { Container,Row,Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBIcon,
-} from "mdb-react-ui-kit";
+import { MDBCard,MDBCardBody,MDBCardImage,MDBIcon,} from "mdb-react-ui-kit";
+import loading from '../../src/img/animacion/loading.json';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 export const ItemDetail = () => {
   // Creo el useSate para generar mi objeto de array que contendra la info de mi Promesa
@@ -24,7 +21,15 @@ const {productoId} = useParams();
    }, [productoId]);
 
   if (!productos) {
-    return <h1>Cargando</h1>;
+    return(
+      <Player
+        src={loading}
+        className="player"
+        loop
+        autoplay
+        speed={1}
+        />
+    );
   }
    const nombre = productos.filter(producto => producto.id == productoId);
 console.log(nombre);

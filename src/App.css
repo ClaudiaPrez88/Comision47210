@@ -91,9 +91,12 @@ a.boton-item {
   padding:20px;
   font-size: 20px;
 }
-.item-listcontainer{
-margin: 50px 0px;
+#item-list-container{
+padding: 50px 0px;
 }
+.item-list-container{
+  padding: 50px 0px;
+  }
 .mensaje-item{
   font-size: 20px;
 }

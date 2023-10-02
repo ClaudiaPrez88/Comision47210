@@ -1,16 +1,16 @@
 import { useEffect,useState } from 'react';
 import data from '../../products.json';
 import { Item } from './Item';
-import { Button, Container,Row, Col} from 'react-bootstrap';
-import {MDBIcon,MDBInput,MDBBtn} from "mdb-react-ui-kit";
+import {  Container,Row, Col} from 'react-bootstrap';
 import { getProductoByName } from './services/productos';
+import loading from '../../src/img/animacion/loading.json';
+import { Player } from '@lottiefiles/react-lottie-player';
   
   
   export const ItemList = () => {
-  
     const [productos,setProductos] = useState([]);
-
-
+  
+ 
     useEffect(() => {
      getProductoByName()
      .then((res)=>{

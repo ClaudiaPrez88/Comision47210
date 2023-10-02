@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import data from '../../../products.json';
+import loading from '../../img/animacion/loading.json';
+import { Player } from '@lottiefiles/react-lottie-player';
+
 
 export const ListaProductos = () =>{
 
@@ -13,7 +16,17 @@ const pedirProductos = () =>{
       
     })
    }
-
+   if (!productos) {
+    return(
+      <Player
+        src={loading}
+        className="player"
+        loop
+        autoplay
+        speed={1}
+        />
+    );
+  }
    useEffect(() => {
     pedirProductos()
     .then((res)=>{
@@ -27,9 +40,6 @@ console.log(productos)
    return (
      <>
     <div>
-     <h1>Listado de pokemons</h1>
-      
-          
             <ul>
             {productos.map((producto)=>(
             <li key={producto.name}>

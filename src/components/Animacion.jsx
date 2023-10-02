@@ -14,7 +14,6 @@ export default function Animacion() {
         loop
         autoplay
         speed={1}
-        
         />
     </div>
   )
