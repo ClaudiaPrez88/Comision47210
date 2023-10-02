@@ -8,11 +8,6 @@ import { ItemList } from './ItemList';
           return (
                <>
                     <ItemList/>
-                  
-                  
-                 {/* <Col sm={4}>
-                     <CheckOut/> 
-                  </Col>*/}
             </>
           )
         }

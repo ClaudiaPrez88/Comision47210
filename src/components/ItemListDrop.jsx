@@ -7,7 +7,7 @@ export default function ItemListDrop({categoria}) {
       ];
   return (
     <>
-        <li class="nav-item dropdown">
+        <li class="dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {categoria}
           </a>
