@@ -10,6 +10,7 @@ import { ListaProductos } from './components/services/ListaProductos';
 import ProductosByName from './components/services/ProductosByName';
 import { ItemDetail } from './components/ItemDetail';
 import { ProductoByCategory } from './components/services/ProductoByCategory';
+import { CartContext } from './components/context/cartContext';
 
 
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+    <CartContext.Provider value={[]}>
     <BrowserRouter>
     <NavBar/>
       <Routes>
@@ -31,7 +33,7 @@ function App() {
          
         
     </BrowserRouter>
-    
+    </CartContext.Provider>
     </>
   );
 }

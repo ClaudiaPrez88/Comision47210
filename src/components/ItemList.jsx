@@ -9,31 +9,30 @@ import { Player } from '@lottiefiles/react-lottie-player';
   
   export const ItemList = () => {
     const [productos,setProductos] = useState([]);
-  
- 
+   
     useEffect(() => {
      getProductoByName()
      .then((res)=>{
         setProductos(res);
      });
     }, []);
-  
-    return (
-      <div className='item-listcontainer'>
-        <Container>
-            <Row>
-            {productos.map((producto) =>(   
-            <>
-            <Col lg={3} sm={6} xs={12} >
-             <Item  name={producto.name} price={producto.price} image={producto.image} id={producto.id} stock={producto.stock} category={producto.category}/>
-            </Col>
-            </>
-            )
-            )}
-            </Row>
-        </Container>
 
-      </div>
-    )
+      return (
+        <div className='item-listcontainer'>
+          <Container>
+              <Row>
+              {productos.map((producto) =>(   
+              <>
+              <Col lg={3} sm={6} xs={12} >
+               <Item  name={producto.name} price={producto.price} image={producto.image} id={producto.id} stock={producto.stock} category={producto.category}/>
+              </Col>
+              </>
+              )
+              )}
+              </Row>
+          </Container>
+  
+        </div>
+      )
   }
   

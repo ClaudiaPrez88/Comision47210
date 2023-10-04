@@ -32,11 +32,11 @@ export const Item = ({name,image,stock,price,category,id}) => {
                     <p className="text-start">
                       <strong>Precio: ${price}</strong>
                     </p>
-                    <a className="boton-item" href={`/producto/${id}`}>
+                    <Link className="boton-item" to={`/producto/${id}`}>
                     <MDBBtn block size="lg"> 
                     
                       detalle
-                      </MDBBtn></a>
+                      </MDBBtn></Link>
                     <div className="botones-item">
                       
                      

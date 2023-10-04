@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { MDBCard,MDBCardBody,MDBCardImage,MDBIcon,} from "mdb-react-ui-kit";
 import loading from '../../src/img/animacion/loading.json';
 import { Player } from '@lottiefiles/react-lottie-player';
+import ItemCount from './ItemCount';
 
 export const ItemDetail = () => {
   // Creo el useSate para generar mi objeto de array que contendra la info de mi Promesa
@@ -30,11 +31,11 @@ const {productoId} = useParams();
         speed={1}
         />
     );
-  }
-   const nombre = productos.filter(producto => producto.id == productoId);
-console.log(nombre);
-
+  };
+  
+const nombre = productos.filter(producto => producto.id == productoId);
 const miProducto = nombre[0];
+
   return (
     
       <>
@@ -86,7 +87,9 @@ const miProducto = nombre[0];
                   <MDBIcon fas icon="star" />
                   <MDBIcon fas icon="star" />
                 </div>
+                
               </div>
+              <ItemCount stock={miProducto.stock}/>
             </MDBCardBody>
           </MDBCard>
             </Col>
