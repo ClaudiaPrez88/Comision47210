@@ -4,6 +4,7 @@ import { Categorias } from './Categorias';
 import ItemListDrop from './ItemListDrop';
 import { CarWidget } from './CarWidget';
 import { NavLink } from 'react-router-dom';
+import { NavbarRoutes } from '../routes/routes';
 
 
 
@@ -25,54 +26,17 @@ export const NavBar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <NavLink to={'/'} className={({isActive,isPending}) => 
-          isPending ? 'pending' : isActive ? 'active' : 'pending'
-        }>
-            Home
-          </NavLink>
-        </li>
-        <li class="nav-item">
-        <NavLink to={'/category/vestidos'} className={({isActive,isPending}) => 
-          isPending ? 'pending' : isActive ? 'active' : 'pending'
-        }>
-            vestidos
-          </NavLink>
+        {NavbarRoutes.map((route)=>(
+           <li class="nav-item">
+           <NavLink to={route.path} className={({isActive,isPending}) => 
+           isPending ? 'pending' : isActive ? 'active' : 'pending'
+         }>
+             {route.name}
+           </NavLink>
+         </li>
+        )
+        )}
        
-        </li>
-        <li class="nav-item">
-        <NavLink to={'/category/joyas'} className={({isActive,isPending}) => 
-          isPending ? 'pending' : isActive ? 'active' : 'pending'
-        }>
-            Joyas
-          </NavLink>
-       
-        </li>
-        <li class="nav-item">
-        <NavLink to={'/category/accesorios'} className={({isActive,isPending}) => 
-          isPending ? 'pending' : isActive ? 'active' : 'pending'
-        }>
-            Accesorios
-          </NavLink>
-       
-        </li>
-        <li class="nav-item">
-        <NavLink to={'/category/sombreros'} className={({isActive,isPending}) => 
-          isPending ? 'pending' : isActive ? 'active' : 'pending'
-        }>
-            Sombreros
-          </NavLink>
-       
-        </li>
-        <li class="nav-item">
-        <NavLink to={'/category/zapatos'} className={({isActive,isPending}) => 
-          isPending ? 'pending' : isActive ? 'active' : 'pending'
-        }>
-            Zapatos
-          </NavLink>
-       
-        </li>
-        
       </ul>
     </div>
     <CarWidget/>

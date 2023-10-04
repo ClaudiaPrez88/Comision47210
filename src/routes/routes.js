@@ -1,0 +1,26 @@
+export const NavbarRoutes = [
+    {
+        path:'/',
+        name:'Inicio',
+    },
+    {
+        path:'/category/vestidos',
+        name:'Vestidos',
+    },
+    {
+        path:'/category/joyas',
+        name:'Joyas',
+    },
+    {
+        path:'/category/accesorios',
+        name:'Accesorios',
+    },
+    {
+        path:'/category/sombreros',
+        name:'Sombreros',
+    },
+    {
+        path:'/category/zapatos',
+        name:'Zapatos',
+    }
+]

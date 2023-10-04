@@ -3,8 +3,7 @@ import data from '../../products.json';
 import { Item } from './Item';
 import {  Container,Row, Col} from 'react-bootstrap';
 import { getProductoByName } from './services/productos';
-import loading from '../../src/img/animacion/loading.json';
-import { Player } from '@lottiefiles/react-lottie-player';
+
   
   
   export const ItemList = () => {

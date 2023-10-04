@@ -8,18 +8,13 @@ import { MDBCard,MDBCardBody,MDBCardImage,MDBIcon,} from "mdb-react-ui-kit";
 import loading from '../../src/img/animacion/loading.json';
 import { Player } from '@lottiefiles/react-lottie-player';
 import ItemCount from './ItemCount';
+import { useProductById } from './Hooks/useProductsById';
 
 export const ItemDetail = () => {
-  // Creo el useSate para generar mi objeto de array que contendra la info de mi Promesa
-const [productos,setProductos] = useState(null);
-//useParams me dara el valor que la url genera, con el parametro de "productoId", para asi luego usarlo y filtrar 
-const {productoId} = useParams();
 
-     //useEffect 
-   useEffect(() => {
-    getProductoByName(productoId)
-    .then((data) => setProductos(data))
-   }, [productoId]);
+const {productoId} = useParams();
+//Hago uso del hook personalizado creado en ../Hooks/useProductById
+const {productos} = useProductById(productoId)
 
   if (!productos) {
     return(
