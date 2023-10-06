@@ -1,16 +1,21 @@
-import React from 'react';
 
-import { useEffect,useState } from 'react';
-import { getProductoByName } from './services/productos';
 import { Container,Row,Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { MDBCard,MDBCardBody,MDBCardImage,MDBIcon,} from "mdb-react-ui-kit";
+import { MDBCard,MDBCardBody,MDBCardImage,MDBIcon,MDBBtn} from "mdb-react-ui-kit";
 import loading from '../../src/img/animacion/loading.json';
 import { Player } from '@lottiefiles/react-lottie-player';
 import ItemCount from './ItemCount';
 import { useProductById } from './Hooks/useProductsById';
+import { useContext } from 'react';
+import { CartContext } from './context/cartContext';
+
 
 export const ItemDetail = () => {
+  const CartInfoContext = useContext(CartContext);
+ const handleClick = () =>{
+  CartInfoContext.setCart([...CartInfoContext.cart,miProducto]);
+  console.log( CartInfoContext.cart)
+ }
 
 const {productoId} = useParams();
 //Hago uso del hook personalizado creado en ../Hooks/useProductById
@@ -31,10 +36,11 @@ const {productos} = useProductById(productoId)
 const nombre = productos.filter(producto => producto.id == productoId);
 const miProducto = nombre[0];
 
+
   return (
     
       <>
-     
+      
          <div>
         <Container id='item-detail'>
           <Row className="justify-content-md-center">
@@ -85,6 +91,7 @@ const miProducto = nombre[0];
                 
               </div>
               <ItemCount stock={miProducto.stock}/>
+              <button onClick={handleClick }>añadir a carrito</button>
             </MDBCardBody>
           </MDBCard>
             </Col>
