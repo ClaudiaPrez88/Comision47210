@@ -4,23 +4,15 @@ export const NavbarRoutes = [
         name:'Inicio',
     },
     {
-        path:'/category/vestidos',
-        name:'Vestidos',
+        path:'/category/agridulces',
+        name:'Agridulces',
     },
     {
-        path:'/category/joyas',
-        name:'Joyas',
+        path:'/category/citricos',
+        name:'Citricas',
     },
     {
-        path:'/category/accesorios',
-        name:'Accesorios',
-    },
-    {
-        path:'/category/sombreros',
-        name:'Sombreros',
-    },
-    {
-        path:'/category/zapatos',
-        name:'Zapatos',
+        path:'/category/dulces',
+        name:'Dulces',
     }
 ]

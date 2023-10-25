@@ -7,7 +7,7 @@ import { CartContext } from './context/cartContext';
 export const CartWidget = () => {
   const CartItemContext = useContext(CartContext);
  const cantidadCarro = CartItemContext.cart.length;
- console.log(cantidadCarro)
+
  
   return (
     <div className='car-widget'>

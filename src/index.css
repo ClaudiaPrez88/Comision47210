@@ -169,6 +169,31 @@
   font-style: italic;
   font-display: swap;
 }
+@font-face {
+  font-family: 'ASM';
+  src: url('../src/fonts/ASM-Regular.eot');
+  src: url('ASM-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../src/fonts/ASM-Regular.woff2') format('woff2'),
+      url('../src/fonts/ASM-Regular.woff') format('woff'),
+      url('../src/fonts/ASM-Regular.ttf') format('truetype'),
+      url('../src/fonts/ASM-Regular.svg#ASM-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ASM';
+  src: url('../src/fonts/ASM-Bold.eot');
+  src: url('../src/fonts/ASM-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../src/fonts/ASM-Bold.woff2') format('woff2'),
+      url('../src/fonts/ASM-Bold.woff') format('woff'),
+      url('../src/fonts/ASM-Bold.ttf') format('truetype'),
+      url('../src/fonts/ASM-Bold.svg#ASM-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 
 
 body{

@@ -8,11 +8,7 @@ export const Item = ({name,image,stock,price,category,id}) => {
     return (
       <div className="item">
         <MDBCard className="mb-4">
-              <MDBCardHeader className="py-3">
-                <MDBTypography tag="h5" className="mb-0">
-                  {name}
-                </MDBTypography>
-              </MDBCardHeader>
+              
               <MDBCardBody>
                     <MDBRipple rippleTag="div" rippleColor="light"
                       className="bg-image rounded hover-zoom hover-overlay">
@@ -23,20 +19,17 @@ export const Item = ({name,image,stock,price,category,id}) => {
                         <div className="mask" style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" , }}>
                         </div>
                       </a>
-                      <p>
-                      <strong>Stock:{stock}</strong>
-                    </p>
+                      <MDBCardHeader className="">
+                    <MDBTypography tag="h5" className="mb-0 titulo-detail">
+                      {name}
+                    </MDBTypography>
+                  </MDBCardHeader>
                     <p className="text-start">
-                      <strong>Categoria:<br></br>{category}</strong>
-                    </p>
-                    <p className="text-start">
-                      <strong>Precio: ${price}</strong>
+                      <strong>${price} USD x KG</strong>
                     </p>
                     <Link className="boton-item" to={`/producto/${id}`}>
-                    <MDBBtn block size="lg"> 
-                    
-                      detalle
-                      </MDBBtn></Link>
+                    <MDBBtn block size="lg" className="boton"> comprar</MDBBtn>
+                    </Link>
                     <div className="botones-item">
                       
                      

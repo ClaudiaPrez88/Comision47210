@@ -1,105 +1,84 @@
 
 import { Container,Row,Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { MDBCard,MDBCardBody,MDBCardImage,MDBIcon,MDBBtn} from "mdb-react-ui-kit";
-import loading from '../../src/img/animacion/loading.json';
-import { Player } from '@lottiefiles/react-lottie-player';
+import {MDBCard, MDBCardBody,MDBCardTitle, MDBCardText,MDBCardImage,} from 'mdb-react-ui-kit';
 import ItemCount from './ItemCount';
-import { useProductById } from './Hooks/useProductsById';
+//  import { useProductById } from './Hooks/useProductsById';
 import { useContext } from 'react';
-import { CartContext } from './context/cartContext';
+import { CartContext} from './context/cartContext';
+import { useEffect, useState } from 'react';
+import {getFirestore,getDocs,collection,query,where} from 'firebase/firestore';
+import {db} from "../firebase"
 
 
-export const ItemDetail = () => {
+export const ItemDetail = ({id, name, image, description, stock, price}) => {
+  const [cant,setCant] = useState(true); 
+  const {productoId} = useParams();
   const CartInfoContext = useContext(CartContext);
- const handleClick = () =>{
-  CartInfoContext.setCart([...CartInfoContext.cart,miProducto]);
-  console.log( CartInfoContext.cart)
- }
+  const {agregarProducto} = useContext(CartContext)
+  const [items, setItems] = useState([]);
+  // creo un hook para traer los productos de firebase y filtrarlo por el id con useParams
 
-const {productoId} = useParams();
-//Hago uso del hook personalizado creado en ../Hooks/useProductById
-const {productos} = useProductById(productoId)
+  // useEffect(() => {
+  //   const db = getFirestore();
+  //   const itemsCollection = collection(db,'items');
 
-  if (!productos) {
-    return(
-      <Player
-        src={loading}
-        className="player"
-        loop
-        autoplay
-        speed={1}
-        />
-    );
-  };
-  
-const nombre = productos.filter(producto => producto.id == productoId);
-const miProducto = nombre[0];
+  //  getDocs(itemsCollection).then((snapshot) => {
+  //     if(!snapshot.empty){
+  //       setItems(snapshot.docs.map(doc=>{
+  //         return{
+  //           id: doc.id,
+  //           ...doc.data()
+  //         }
+  //       }))
+  //     }
+  //   });
+  // },[])
+  // const nombre = items.filter(producto => producto.id == productoId);
 
+  useEffect(() => {
+    const q = query(collection(db,"items"),where("id", "==", productoId));
+    getDocs(q).then( (snapshot) => {
+      if(snapshot.size === 0){
+        console.log("no hay resultados");
+      }
+      setItems(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()}) ) );
+    });
+  }, []);
+
+const onAdd = (cantidadSeleccionada) =>{
+  setCant(cantidadSeleccionada);
+  const item = { id, name, image, description, stock, price}
+  agregarProducto(item,cantidadSeleccionada)
+}
 
   return (
     
-      <>
-      
          <div>
-        <Container id='item-detail'>
-          <Row className="justify-content-md-center">
-            <Col lg={6} xs={12}>
-            <MDBCard>
-            <div className="d-flex justify-content-between p-3">
-              <p className="lead mb-0">{miProducto.name}</p>
-              <div
-                className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                style={{ width: "35px", height: "35px" }}
-              >
-                <p className="text-white mb-0 small">x{miProducto.stock}</p>
-              </div>
-            </div>
-            <MDBCardImage
-              src={miProducto.image}
-              position="top"
-              alt="Laptop"
-            />
-            <MDBCardBody>
-              <div className="d-flex justify-content-between">
-                <p className="small">
-                  <a href="#!" className="text-muted">
-                  Categorias
-                  </a>
-                </p>
-                <p className="small">
-                  {miProducto.category}
-                </p>
-              </div>
-
-              <div className="d-flex justify-content-between mb-3">
-                <h5 className="mb-0">Precio</h5>
-                <h5 className="text-dark mb-0">${miProducto.price} CLP</h5>
-              </div>
-
-              <div class="d-flex justify-content-between mb-2">
-                <p class="text-muted mb-0">
-                  Stock: <span class="fw-bold">{miProducto.stock}</span>
-                </p>
-                <div class="ms-auto text-warning">
-                  <MDBIcon fas icon="star" />
-                  <MDBIcon fas icon="star" />
-                  <MDBIcon fas icon="star" />
-                  <MDBIcon fas icon="star" />
-                  <MDBIcon fas icon="star" />
-                </div>
-                
-              </div>
-              <ItemCount stock={miProducto.stock}/>
-              <button onClick={handleClick }>añadir a carrito</button>
-            </MDBCardBody>
-          </MDBCard>
-            </Col>
-          </Row>
-        </Container>
-         </div>
+         
+        <MDBCard>
+        <Container>
+            <Row>
+            <Col xl={6} lg={12} sm={12}>
+              <MDBCardImage src={image} position='top' alt={name} className="imagen-detalle"/>
+              </Col>
+              <Col xl={6} lg={12} sm={12}>
+                <MDBCardBody>
+                  <MDBCardTitle className='subt-cart text-red'>{name}</MDBCardTitle>
+                  <MDBCardText>
+                   {description}
+                  </MDBCardText>
+                    <h5 className='subt-cart text-red'>Stock:{stock}</h5>
+                    <h5 className='subt-cart text-red'>Precio: {price}</h5>
+                  <ItemCount stock={stock} initial={0} onAdd={onAdd}/> 
+                </MDBCardBody>
+                </Col>
+            </Row>
+          </Container>
+        </MDBCard>
+          
+          
+        </div>
       
-     
-      </>
   )
 }

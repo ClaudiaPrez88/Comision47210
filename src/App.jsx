@@ -10,26 +10,32 @@ import { ItemDetail } from './components/ItemDetail';
 import { ProductoByCategory } from './components/services/ProductoByCategory';
 import { CartProvider } from './components/context/cartContext';
 import Cart from './components/Cart';
+import { useEffect, useState } from 'react';
+import {getFirestore,getDocs,collection} from 'firebase/firestore'
+import ItemDetailContainer from './components/ItemDetailContainer';
+import Footer from './components/Footer';
+import CheckOut from './components/CheckOut';
+
 
 
 function App() {
 
-
   return (
     <>
     <CartProvider>
-    <BrowserRouter>
-    <NavBar/>
-      <Routes>
-        <Route path='/' element={ <ItemListContainer/>}/>
-        <Route path='/category/:productoCategory' element={ <ProductoByCategory/>}/>
-        <Route path='/producto/:productoId' element={<ItemDetail/>}/>
-        <Route path='/cart' element={<Cart/>}/>
-        <Route path='*' element={ <Animacion/>}/>
-      </Routes>
-         
-        
-    </BrowserRouter>
+      <BrowserRouter>
+      <NavBar/>
+        <Routes>
+          <Route path='/' element={ <ItemListContainer/>}/>
+          <Route path='/category/:productoCategory' element={ <ProductoByCategory/>}/>
+          <Route path='/producto/:productoId' element={<ItemDetailContainer/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/checkout' element={<CheckOut/>}/>
+          <Route path='*' element={ <Animacion/>}/>
+        </Routes>
+        <Footer/>
+          
+      </BrowserRouter>
     </CartProvider>
     </>
   );
