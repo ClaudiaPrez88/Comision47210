@@ -4,7 +4,7 @@ import { MDBBtn, MDBCard,MDBCardBody,MDBCardImage,MDBCardText,MDBCol,MDBContaine
 import TotalCart from "./TotalCart";
 import { useContext} from "react";
 import { CartContext } from "./context/cartContext";
-import {Col, Row} from 'react-bootstrap';
+import {Col, Row,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Player } from '@lottiefiles/react-lottie-player';
 import limon from "../img/animacion/limon.json";
@@ -48,10 +48,10 @@ export default function Cart() {
                         <div className="p-5">
                           <div className="d-flex justify-content-between align-items-center mb-5">
                             <MDBTypography tag="h1" className="fw-bold mb-0 tit-cart">
-                              Shopping Cart
+                              Deetalle de compra
                             </MDBTypography>
                             <MDBTypography className="mb-0 subt-cart">
-                            Total de productos:
+                            Productos:
                             </MDBTypography>
                           </div>
         
@@ -82,7 +82,7 @@ export default function Cart() {
 
                             <MDBCol md="2" lg="2" xl="2" className="text-end">
                               <MDBTypography tag="h6" className="mb-0">
-                                $ {product.price}
+                                $ {product.price}  USD
                               </MDBTypography>
                             </MDBCol>
 
@@ -121,13 +121,9 @@ export default function Cart() {
                       <MDBCol lg="4" className="bg-grey">
                         <div className="p-5">
                         <TotalCart/>
-        
-                          <hr className="my-4" />
-                         
-        
-                          <hr className="my-4" />
-                          <Link to={'/checkout'}>
-                            <MDBBtn className='boton' block size="lg">Finalizar compra</MDBBtn>
+                          
+                          <Link to={'/checkout'} className="no-underline">
+                            <div className='boton-rojo' block size="lg">Finalizar compra</div>
                           </Link>
                          
                           

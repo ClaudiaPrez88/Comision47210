@@ -27,7 +27,7 @@ export default function ItemDetailContainer() {
     <div>
         <Container className='card-detalle' fluid>
         <Row>
-          <Col xs='12' md={{offset: 3, span: 6}}>
+          <Col xs='12' md={{offset: 2, span: 8}}>
           
           {product.map((product)=>(
           <ItemDetail stock={product.stock} image={product.image} price={product.price} id={product.id} name={product.name} description={product.description}/>

@@ -30,7 +30,8 @@
     "react-icons": "^4.11.0",
     "react-loading-skeleton": "^3.3.1",
     "react-paginate": "^8.2.0",
-    "react-router-dom": "^6.17.0"
+    "react-router-dom": "^6.17.0",
+    "sweetalert2": "^11.7.32"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

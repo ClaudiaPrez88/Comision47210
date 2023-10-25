@@ -5,12 +5,15 @@ import ListFooter from './ListFooter';
 import { FooterRoutes } from '../routes/routes-footer';
 import { LinksInteres } from '../routes/routes-footer';
 import borde from "../img/borde.png";
-import { useParams,useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useContext} from "react";
+import { CartContext } from "./context/cartContext";
+import redes from "../../src/img/svg/redes.svg";
 
 export default function Footer() {
 
   const { pathname } = useLocation();
- 
+  const {cart} = useContext(CartContext);
  // Función para determinar la clase de fondo
  const getBackgroundClass = () => {
   if (pathname === '/') {
@@ -19,10 +22,13 @@ export default function Footer() {
     return 'category-background';
   } else if (pathname.startsWith('/producto/')) {
     return 'product-background';
-  }if (pathname === '/cart') {
+  }if (location.pathname === '/cart' && cart.length === 0 ) {
+    return 'cart-vacio';
+  }
+  if (pathname === '/cart') {
     return 'cart-background';
   }
-  return 'default-background';
+  return 'home-background';
 };
 
   return (
@@ -42,7 +48,7 @@ export default function Footer() {
                 <ListFooter items={LinksInteres} titulo="Otros"/>
                 </Col>
                 <Col lg={3} className='footer'>
-                
+                <img src={redes} className="borde-footer" alt="Pompom" />
                 </Col>
             </Row>
         </Container>

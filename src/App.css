@@ -228,7 +228,13 @@ button.navbar-toggler {
   background-color: #F9423A !important;
   display: block !important;
   margin: 0 auto !important;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 10px;
 }
+
 .count{
   margin-right: 10px; 
 }
@@ -298,8 +304,22 @@ border: 2px solid #F9423A !important;
   color:#F94239;
   font-family: 'ASM';
 }
+.stock{
+  color: #363636;
+  font-size: 15px;
+  font-weight: 600;
+}
+.precio{
+  font-size: 25px;
+
+}
 .text-red{
   color:#F94239 !important;
+}
+.text-form{
+  color: #FEEFE0;
+  font-family: 'ASM';
+  padding-bottom: 20px;
 }
 .text-green{
   color: #2E4303;
@@ -388,11 +408,14 @@ hr.my-4 {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
-  color: #ffffff;
+  color: #804E8F;
 }
-#anuncio, #checkout{
+.form-web{
+  padding: 50px 0px;
+}
+ #checkout{
   padding: 100px 0px;
-  background-color: #FF4438;
+  background-color: #ffffff;
 }
 
 /* Fondos */
@@ -413,4 +436,13 @@ hr.my-4 {
 .cart-background {
   background-color: #FEDD03; 
   padding: 0px !important;
+}
+.cart-vacio{
+  background-color: #01b0e3; 
+  padding: 0px !important;
+}
+.form{
+  background-color: #804E8F;
+  margin-bottom: 50px;
+  border-radius: 20px;
 }
