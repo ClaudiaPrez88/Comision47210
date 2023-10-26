@@ -36,7 +36,7 @@ Las principales funcionalidades que se implementarán en la aplicación incluyen
 
 A continuación, puedes ver una vista previa de la interfaz de usuario de nuestra aplicación:
 
-![Vista Previa de la Aplicación para compra de producto](https://firebasestorage.googleapis.com/v0/b/tienda-ropa-d7b88.appspot.com/o/compra.gif?alt=media&token=05362897-f67e-44f3-bb33-6852dcfc4ce6&_gl=1*1drl3qr*_ga*NzE1MjQ4Njk4LjE2OTcxMzcyMjE.*_ga_CW55HF8NVT*MTY5ODMyNzExNC4zMS4xLjE2OTgzMjcyNTAuNDAuMC4w)
+![Vista Previa de la Aplicación para compra de producto](https://firebasestorage.googleapis.com/v0/b/tienda-ropa-d7b88.appspot.com/o/compra2.gif?alt=media&token=c1bc5a70-555d-40a2-bba6-6e9170db23eb&_gl=1*no3jjm*_ga*NzE1MjQ4Njk4LjE2OTcxMzcyMjE.*_ga_CW55HF8NVT*MTY5ODMzNjU3OS4zMi4xLjE2OTgzMzY2MTQuMjUuMC4w)
 
 ![Vista Previa de la Aplicación para navegación por categorias](https://firebasestorage.googleapis.com/v0/b/tienda-ropa-d7b88.appspot.com/o/categorias.gif?alt=media&token=64b418e6-f981-4cb8-99a2-e0bb9d777b94&_gl=1*szoiok*_ga*NzE1MjQ4Njk4LjE2OTcxMzcyMjE.*_ga_CW55HF8NVT*MTY5ODMyNzExNC4zMS4xLjE2OTgzMjcyMzAuNjAuMC4w)
 
