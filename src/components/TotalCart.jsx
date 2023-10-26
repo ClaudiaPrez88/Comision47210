@@ -1,8 +1,7 @@
 import React , { useContext} from 'react'
-import {Button, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartContext } from './context/cartContext';
-import { MDBBtn, MDBTypography} from "mdb-react-ui-kit";
+import {  MDBTypography,MDBCol,MDBContainer,MDBRow} from "mdb-react-ui-kit";
 
 function TotalCart() {
     const {precioTotal,cantidadTotal} = useContext(CartContext);
@@ -12,20 +11,18 @@ function TotalCart() {
 
   return (
     <>
-    <div className="d-flex justify-content-between mb-5">
-        <MDBTypography tag="h5" className="text-uppercase subt-cart">
-        Total productos:
-        </MDBTypography>
-        <MDBTypography tag="h5" className='precio'>{cantidadTotal()} u</MDBTypography>
-    </div>
-    <div className="d-flex justify-content-between mb-5">
-        <MDBTypography tag="h5" className="text-uppercase subt-cart">
-        Total:
-        </MDBTypography>
-        <MDBTypography tag="h5" className='precio'>$ {precioTotal()} USD</MDBTypography>
-    </div>
-
-   
+     <MDBContainer className="py-5 h-100">
+     <MDBRow className="justify-content-center align-items-center h-100">
+      
+        <MDBCol sm="12"  xl="12">
+        <MDBTypography tag="h5" className='precio'><span className='total-text'>Productos:</span>{cantidadTotal()} u</MDBTypography>
+        </MDBCol>
+      
+      <MDBCol sm="12"   xl="12">
+            <MDBTypography tag="h5" className='precio'><span className='total-text'>Total:</span> $ {precioTotal()} USD</MDBTypography>
+      </MDBCol>
+    </MDBRow>
+    </MDBContainer>
 
     
     </>

@@ -48,7 +48,7 @@ export default function Footer() {
                 <ListFooter items={LinksInteres} titulo="Otros"/>
                 </Col>
                 <Col lg={3} className='footer'>
-                <img src={redes} className="borde-footer" alt="Pompom" />
+                <img src={redes} className="redes-footer" alt="Pompom" />
                 </Col>
             </Row>
         </Container>

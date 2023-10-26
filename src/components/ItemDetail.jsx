@@ -59,19 +59,19 @@ const onAdd = (cantidadSeleccionada) =>{
         <MDBCard>
         <Container>
             <Row>
-            <Col xl={4} lg={4} sm={12}>
-              <MDBCardImage src={image} position='top' alt={name} className="imagen-detalle"/>
-              </Col>
-              <Col xl={8} lg={8} sm={12}>
-                <MDBCardBody>
-                  <MDBCardTitle className='subt-cart text-red'>{name}</MDBCardTitle>
-                  <MDBCardText>
-                   {description}
-                  </MDBCardText>
-                    <h5 className='stock'>Disponibles: {stock}</h5>
-                    <h5 className='precio'>$ {price} USD x KG</h5>
-                  <ItemCount stock={stock} initial={0} onAdd={onAdd}/> 
-                </MDBCardBody>
+                <Col xxl={5} xl={6} sm={12} >
+                  <MDBCardImage src={image} position='top' alt={name} className="imagen-detalle"/>
+                </Col>
+                <Col xxl={7} xl={6} sm={12}>
+                  <MDBCardBody>
+                    <MDBCardTitle className='name-detail'>{name}</MDBCardTitle>
+                    <MDBCardText className='justify'>
+                    {description}
+                    </MDBCardText>
+                      <h5 className='stock'>Disponibles: {stock}</h5>
+                      <h5 className='precio-detail'>$ {price} USD x KG</h5>
+                    <ItemCount stock={stock} initial={0} onAdd={onAdd}/> 
+                  </MDBCardBody>
                 </Col>
             </Row>
           </Container>

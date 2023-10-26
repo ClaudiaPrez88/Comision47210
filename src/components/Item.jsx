@@ -20,7 +20,7 @@ export const Item = ({name,image,stock,price,category,id}) => {
                         </div>
                       </a>
                       <MDBCardHeader className="">
-                    <MDBTypography tag="h5" className="mb-0 subt-cart text-red">
+                    <MDBTypography tag="h5" className="mb-0 name-detail">
                       {name}
                     </MDBTypography>
                   </MDBCardHeader>

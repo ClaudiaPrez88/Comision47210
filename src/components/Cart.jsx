@@ -1,10 +1,10 @@
 
-import { MDBBtn, MDBCard,MDBCardBody,MDBCardImage,MDBCardText,MDBCol,MDBContainer,MDBIcon,MDBInput,MDBRow, MDBTypography} from "mdb-react-ui-kit";
+import { MDBBtn, MDBCard,MDBCardBody,MDBCardImage,MDBCol,MDBContainer,MDBIcon,MDBRow, MDBTypography} from "mdb-react-ui-kit";
   import React from "react";
 import TotalCart from "./TotalCart";
 import { useContext} from "react";
 import { CartContext } from "./context/cartContext";
-import {Col, Row,Button} from 'react-bootstrap';
+import {Col, Row} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Player } from '@lottiefiles/react-lottie-player';
 import limon from "../img/animacion/limon.json";
@@ -44,54 +44,41 @@ export default function Cart() {
                 <MDBCard className="card-registration card-registration-2" style={{ borderRadius: "15px" }}>
                   <MDBCardBody className="p-0">
                     <MDBRow className="g-0">
-                      <MDBCol lg="8">
+                      <MDBCol xxl="8" xl="7" lg="7">
                         <div className="p-5">
-                          <div className="d-flex justify-content-between align-items-center mb-5">
-                            <MDBTypography tag="h1" className="fw-bold mb-0 tit-cart">
-                              Deetalle de compra
-                            </MDBTypography>
-                            <MDBTypography className="mb-0 subt-cart">
-                            Productos:
-                            </MDBTypography>
-                          </div>
-        
+                          <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
+                            <MDBCol sm="12" md="6" lg="8"  xl="9">
+                                <MDBTypography tag="h1" className="fw-bold mb-0 tit-cart">
+                                  Detalle de compra
+                                </MDBTypography>
+                            </MDBCol>
+                            <MDBCol sm="12" md="6" lg="4" xl="3">
+                                <MDBTypography className="mb-0 subt-cart">
+                                Productos:
+                                </MDBTypography>
+                            </MDBCol>
+                          </MDBRow>
                           <hr className="my-4" />
                           {cart.map((product,i)=>{
                           return(
                           <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
 
-                            <MDBCol md="2" lg="2" xl="2">
-                              <MDBCardImage
+                            <MDBCol className='img-background' md="12" lg="4" xl="2">
+                              <MDBCardImage 
                                 src={product.image}
-                                fluid className="rounded-3" alt="Cotton T-shirt" />
+                                fluid className="rounded-3 img-cart" alt="Cotton T-shirt" />
                             </MDBCol>
 
-                            <MDBCol md="3" lg="3" xl="3">
-                              
-                              <MDBTypography tag="h6" className="text-muted"> Categoria:
-                              
-                              </MDBTypography>
+                            <MDBCol sm="6" md="6" lg="4" xl="3">
                               <MDBTypography tag="h6" className="text-black mb-0">
-                              {product.name}
+                              {product.name} x {product.cantidad}
                               </MDBTypography>
                             </MDBCol>
-
-                            <MDBCol md="2" lg="2" xl="2" className="d-flex align-items-center">
-                            <p>{product.cantidad}</p>
-                            </MDBCol>
-
-                            <MDBCol md="2" lg="2" xl="2" className="text-end">
-                              <MDBTypography tag="h6" className="mb-0">
-                                $ {product.price}  USD
+                            <MDBCol sm="6" md="6" lg="4" xl="3">
+                              <MDBTypography tag="h6" className="text-black mb-0 text-price">
+                              $ {product.price}  USD <MDBIcon className="remove-item"  onClick={()=>deleteItem(product.id)} fas icon="times" />
                               </MDBTypography>
                             </MDBCol>
-
-                            <MDBCol md="2" lg="2" xl="2" className="text-end">
-                              <a href="#!" className="text-muted">
-                                <MDBIcon  onClick={()=>deleteItem(product.id)} fas icon="times" />
-                              </a>
-                            </MDBCol>
-                          
                           </MDBRow>
         
                               )
@@ -99,15 +86,12 @@ export default function Cart() {
                             <MDBContainer>
                               <MDBRow>
                                 <MDBCol size='md'>
-                                <div className="pt-5">
+                                <div className="pt-5 return">
                                   <Link to={'/'} className="no-underline">
                                       <MDBIcon fas icon="long-arrow-alt-left me-2 text-red" /> 
-                                     <span className="subt-cart">Regresar a la tienda</span> 
+                                     <span className="subt-cart">Volver</span> 
                                   </Link>
                                 </div>
-                                </MDBCol>
-                                <MDBCol size='md'>
-                                
                                 </MDBCol>
                                 <MDBCol size='md'>
                                 <MDBBtn onClick={vaciar} className='boton' block size="lg">
@@ -118,7 +102,7 @@ export default function Cart() {
                             </MDBContainer>
                         </div>
                       </MDBCol>
-                      <MDBCol lg="4" className="bg-grey">
+                      <MDBCol xxl="4" xl="5" lg="5" className="bg-grey">
                         <div className="p-5">
                         <TotalCart/>
                           

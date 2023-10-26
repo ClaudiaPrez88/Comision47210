@@ -109,6 +109,9 @@ display:block;
   position: absolute;
   z-index: 300;
 }
+.text-price{
+  text-align: right;
+}
 .numero{
   text-align: center;
 }
@@ -303,6 +306,16 @@ border: 2px solid #F9423A !important;
 .subt-cart{
   color:#F94239;
   font-family: 'ASM';
+  text-align: right;
+}
+.name-detail{
+  color:#F94239;
+  font-family: 'ASM';
+}
+.total-text{
+  color:#F94239;
+  font-family: 'ASM';
+  text-align: left;
 }
 .stock{
   color: #363636;
@@ -311,10 +324,15 @@ border: 2px solid #F9423A !important;
 }
 .precio{
   font-size: 25px;
-
+}
+.precio-detail{
+  font-size: 25px;
 }
 .text-red{
   color:#F94239 !important;
+}
+.justify{
+  text-align: justify;
 }
 .text-form{
   color: #FEEFE0;
@@ -445,4 +463,88 @@ hr.my-4 {
   background-color: #804E8F;
   margin-bottom: 50px;
   border-radius: 20px;
+}
+.return{
+  padding-bottom:0px ;
+  text-align: left;
+}
+.img-cart{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+}
+.remove-item{
+  background-color: #6AB32D;
+  border: 8px solid #6AB32D;
+  border-radius: 20px;
+}
+.img-background{
+  background-color: transparent;
+  border-radius: 20px;
+  margin-bottom: 0px;
+}
+/* mediaqueries  */
+
+@media (max-width: 1200px) {
+  .tit-cart {
+    font-size: 25px;
+  }
+  
+}
+
+@media (max-width: 991px) {
+  .img-background{
+    background-color: #ffffff;
+   margin-bottom: 20px;
+  }
+  .logo-footer {
+    display: block;
+    margin: 0 auto;
+}
+.redes-footer {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+.return{
+  padding-bottom:20px ;
+}
+h1 {
+  font-size: 20px !important;
+}
+.img-cart{
+  width: 300px;
+  height: auto;
+}
+
+
+}
+
+@media (max-width: 767px) {
+  .p-5 {
+    padding: 1rem!important;
+}
+
+.tit-cart {
+  text-align: center !important;
+}
+
+.text-black{
+text-align: center;
+padding-bottom: 20px;
+}
+.redes-footer {
+  width: 90%;
+}
+.subt-cart{
+  text-align: center;
+  font-size: 20px;
+}
+.total-text {
+  font-size: 20px;
+  display: block;
+}
+
 }
